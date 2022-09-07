@@ -1,14 +1,17 @@
 M = int(input())
 N = int(input())
 
-is_sosu = True
+
 sosu = []
 for i in range(M, N + 1):
+    is_sosu = True
+    if i == 1:
+        is_sosu = False
     for x in range(2, i):
         if i % x == 0:
             is_sosu = False
             break
-    else:
+    if is_sosu:
         sosu.append(i)
 if len(sosu):
     print(sum(sosu))
