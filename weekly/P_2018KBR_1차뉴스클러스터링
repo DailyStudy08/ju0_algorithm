@@ -1,0 +1,38 @@
+def solution(str1, str2):
+    str1 = str1.lower()
+    str2 = str2.lower()
+    str1_dict = {}
+    str2_dict = {}
+    for i in range(len(str1) - 1):
+        s = str1[i : i + 2]
+        if s.isalpha():
+            str1_dict[s] = str1_dict.get(s, 0) + 1
+    for j in range(len(str2) - 1):
+        s = str2[j : j + 2]
+        if s.isalpha():
+            str2_dict[s] = str2_dict.get(s, 0) + 1
+    gyo = 0
+    hap = 0
+    tot_lst = list(str1_dict.keys()) + list(str2_dict.keys())
+    tot_set = set(tot_lst)
+    for el in tot_set:
+        if tot_lst.count(el) == 1:
+            hap += str1_dict.get(el, 0) + str2_dict.get(el, 0)
+        else:
+            if str1_dict.get(el, 0) < str2_dict.get(el, 0):
+                hap += str2_dict.get(el, 0)
+                gyo += str1_dict.get(el, 0)
+            else:
+                hap += str1_dict.get(el, 0)
+                gyo += str2_dict.get(el, 0)
+    # print(tot_set)
+    # print(tot_lst)
+    # print(str1_dict,
+    #      str2_dict)
+    # print(gyo, hap)
+    if gyo == hap or hap == 0:
+        ans = 1
+    else:
+        ans = gyo / hap
+    answer = int(ans * 65536)
+    return answer
