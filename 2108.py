@@ -19,7 +19,7 @@ for e in a_set:
     if a.count(e) >= max_cnt:
         cnt_lst.append(e)
 cnt_lst.sort()
-a3 = cnt_lst[1]
+a3 = cnt_lst[1] 
 print(a3)
 a4 = max(a) - min(a)
 print(a4)
