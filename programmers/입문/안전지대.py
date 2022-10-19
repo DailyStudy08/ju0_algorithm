@@ -15,4 +15,4 @@ def solution(board):
     answer = 0
     for i in range(n):
         answer += board[i].count(0)
-    return answers
+    return answer
